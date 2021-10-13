@@ -28,7 +28,7 @@ function getProgressbarEl({ name, hp = 100 }) {
   PLAYER_NAME_EL.className = 'name'
 
   HEALTH_POINTS_EL.style.width = `${hp}%`
-  PLAYER_NAME_EL.innerText = name
+  PLAYER_NAME_EL.innerText = name.toUpperCase()
 
   PROGRESSBAR_EL.append(HEALTH_POINTS_EL, PLAYER_NAME_EL)
 
@@ -55,18 +55,22 @@ function getCharacterImageUrl(playerName) {
     : 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif'
 }
 
-createPlayer('player1', {
-  name: 'SCORPION',
-  hp: 100,
-  img: '',
-  weapon: [''],
-  attack: () => console.log(`${this.name} Fight`),
-})
+window.onload = function () {
 
-createPlayer('player2', {
-  name: 'kitana',
-  hp: 80,
-  img: '',
-  weapon: [''],
-  attack: () => console.log(`${this.name} Fight`),
-})
+  createPlayer('player1', {
+    name: 'SCORPION',
+    hp: 100,
+    img: '',
+    weapon: [''],
+    attack: () => console.log(`${this.name} Fight`),
+  })
+
+  createPlayer('player2', {
+    name: 'kitana',
+    hp: 80,
+    img: '',
+    weapon: [''],
+    attack: () => console.log(`${this.name} Fight`),
+  })
+
+}
