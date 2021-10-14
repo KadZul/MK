@@ -1,4 +1,6 @@
 
+const ARENAS_EL = [...document.getElementsByClassName('arenas')][0]
+
 function createPlayer(className, options) {
   const PLAYER_EL = document.createElement('div')
   const PROGRESSBAR_EL = getProgressbarEl(options)
@@ -11,8 +13,6 @@ function createPlayer(className, options) {
 }
 
 function appendToArenas(el) {
-  const ARENAS_EL = [...document.getElementsByClassName('arenas')][0]
-  
   if (ARENAS_EL) {
     ARENAS_EL.appendChild(el)
   }
