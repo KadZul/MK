@@ -7,8 +7,6 @@ const PLAYER_ONE = {
   name: 'SCORPION',
   hp: 100,
   img: '',
-  weapon: [''],
-  attack: () => console.log(`${this.name} Fight`),
 }
 
 const PLAYER_TWO = {
@@ -16,8 +14,6 @@ const PLAYER_TWO = {
   name: 'kitana',
   hp: 100,
   img: '',
-  weapon: [''],
-  attack: () => console.log(`${this.name} Fight`),
 }
 
 RANDOM_BTN_EL.addEventListener('click', () => {
@@ -28,7 +24,7 @@ RANDOM_BTN_EL.addEventListener('click', () => {
 function changeHP(player) {
   const PLAYER_HP_EL = document.querySelector(`.player${player.player} .life`)
 
-  player.hp -= Math.floor(Math.random() * 20);
+  player.hp -= getRandomNum(20)
 
   if (player.hp <= 0) {
     PLAYER_HP_EL.style.width = '0'
@@ -40,13 +36,17 @@ function changeHP(player) {
   }
 }
 
+function getRandomNum(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function win({ name }) {
-  const LOSE_TITLE_EL = createElementWithAttrs('span', {
+  const WIN_TITLE_EL = createElementWithAttrs('span', {
     'className': 'loseTitle',
     'innerText': `${name.toUpperCase()} WINS!`
   })
 
-  appendToArenas(LOSE_TITLE_EL)
+  appendToArenas(WIN_TITLE_EL)
 }
 
 function createPlayer(options) {
